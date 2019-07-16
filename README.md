@@ -9,6 +9,7 @@ In this project, I am implementing the completed solution with MicroService by u
 * docker compose
 
 ## Getting Start
+* Start all application by using docker-compose
 ``` docke-compose up```
 * spring-cloud-gateway is running on port 8080
 * service-discovery is running on port 8761
