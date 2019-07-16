@@ -1,0 +1,10 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: song-service
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://zipkin-server-dev.private.ascendmoney-dev.internal
