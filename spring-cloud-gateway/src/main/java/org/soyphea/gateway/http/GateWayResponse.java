@@ -18,17 +18,13 @@ public class GateWayResponse {
 
         ObjectMapper objectMapper = new ObjectMapper();
         String responseJsonString = "";
-
         try {
             responseJsonString = objectMapper.writeValueAsString(apiResponse);
         }catch (Exception ex){
             ex.printStackTrace();
         }
-
         ServerHttpResponse response = exchange.getResponse();
-
         response.setStatusCode(httpStatus);
-
         byte[] bytes = responseJsonString.getBytes(StandardCharsets.UTF_8);
         response.getHeaders().setContentType(MediaType.APPLICATION_JSON);
         DataBuffer buffer = exchange.getResponse().bufferFactory().wrap(bytes);
