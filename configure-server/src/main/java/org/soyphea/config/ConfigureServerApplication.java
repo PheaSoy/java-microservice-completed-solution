@@ -25,7 +25,7 @@ public class ConfigureServerApplication {
 		
 	}
 	public String getDefaultValue() {
-	    System.out.println("Getting Default Value");
+	    System.out.println("Getting Default Value11");
 	    return "Default Value";
 	}
 }
