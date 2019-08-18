@@ -1,16 +1,19 @@
 server:
-  port: 8081
+  port: 0
   servlet:
-    context-path: /configure-server
+    context-path: /config
 spring:
   application:
-    name: configure-server
+    name: configserver
   cloud:
     config:
       server:
         git:
           uri: https://github.com/PheaSoy/spring-completed-microservice
           search-paths: config/{application}
+      discovery:
+        enabled: true
+
 management:
   endpoints:
     web:

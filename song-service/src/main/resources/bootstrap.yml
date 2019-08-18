@@ -1,6 +1,9 @@
 spring:
   application:
     name: song-service
+
   cloud:
     config:
-      uri: http://localhost:8081/configure-server
+      uri: http://configserver/config
+      discovery:
+        enabled: true
