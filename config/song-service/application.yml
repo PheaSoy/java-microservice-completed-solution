@@ -8,5 +8,5 @@ management:
         include: '*'
 server:
   port: 0
-favorit:
+favorite:
   song: Perfect
