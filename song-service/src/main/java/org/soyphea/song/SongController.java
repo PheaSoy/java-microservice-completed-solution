@@ -36,7 +36,7 @@ public class SongController {
     @GetMapping("/song/{name}")
     public ResponseEntity<?> listSongMatchedWithSongName(@PathVariable("name") String name) {
         logger.info("List all the songs matched with name:{}",name);
-        return songRepository.findById(name).map(mySong -> ResponseEntity.ok(mySong)).orElseThrow(() -> new SongException(name));
+        return songRepository.findByName(name).map(mySong -> ResponseEntity.ok(mySong)).orElseThrow(() -> new SongException(name));
     }
 
 

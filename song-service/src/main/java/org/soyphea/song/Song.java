@@ -1,14 +1,17 @@
 package org.soyphea.song;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "song")
 public class Song {
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
+    Long id;
+
     String name;
 
     @JsonProperty("singer_name")
