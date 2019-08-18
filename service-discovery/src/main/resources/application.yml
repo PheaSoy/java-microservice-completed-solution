@@ -9,4 +9,4 @@ eureka:
 #    com:
 #      netflix:
 #        eureka: OFF
-#        discovery: OFF
+#        notification: OFF

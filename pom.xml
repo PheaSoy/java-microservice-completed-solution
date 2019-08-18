@@ -48,8 +48,9 @@
 	<modules>
 		<module>spring-cloud-gateway</module>
 		<module>service-discovery</module>
-		<module>song-service</module>
 		<module>spring-boot-oauth2</module>
+		<module>notification-service</module>
+		<module>song-service</module>
 	</modules>
 
 </project>

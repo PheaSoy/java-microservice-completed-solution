@@ -15,14 +15,13 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
-import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
 import javax.sql.DataSource;
 
 @Configuration
 @EnableAuthorizationServer
 @Profile("jdbc")
-public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
+public class AuthJDBCServerConfiguration extends AuthorizationServerConfigurerAdapter {
 
 	@Autowired
 	private DataSource dataSource;

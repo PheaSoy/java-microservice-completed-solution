@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -21,11 +22,11 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableAuthorizationServer
-@Profile("jdbc")
-public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
+@Profile("redis")
+public class AuthRedisServerConfiguration extends AuthorizationServerConfigurerAdapter {
 
 	@Autowired
-	private DataSource dataSource;
+	RedisConnectionFactory redisConnectionFactory;
 
 	@Autowired
 	@Qualifier("authenticationManagerBean")
@@ -34,13 +35,13 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
 		endpoints.authenticationManager(authenticationManager).tokenEnhancer(tokenEnhancer())
-				.tokenStore(tokenStore());
+				.tokenStore(redisTokenStore());
 
 	}
 
 	@Bean
-	public TokenStore tokenStore() {
-		return new JdbcTokenStore(dataSource);
+	public TokenStore redisTokenStore() {
+		return new RedisTokenStore(redisConnectionFactory);
 	}
 
 	@Override
@@ -59,9 +60,18 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 	}
 */
 
+  // IN memory clients store
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		clients.jdbc(dataSource);
+
+		clients.inMemory()
+				.withClient("fooClientIdPassword")
+				.authorizedGrantTypes("client_credentials", "password")
+				.authorities("ROLE_ADMIN", "ROLE_TRUSTED_CLIENT")
+				.scopes("read", "write", "trust")
+				.secret("secret")
+				.accessTokenValiditySeconds(120)
+				.refreshTokenValiditySeconds(600);
 	}
 
 	@SuppressWarnings("deprecation")
