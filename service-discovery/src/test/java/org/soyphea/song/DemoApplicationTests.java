@@ -1,4 +1,4 @@
-package org.soyphea.notification;
+package org.soyphea.song;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

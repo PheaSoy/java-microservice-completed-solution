@@ -5,8 +5,8 @@ spring:
     stream:
       bindings:
         send:
-          destination: notification
-          group: notification-group
+          destination: song
+          group: song-group
           durableSubscription: true
   rabbitmq:
     username: guest

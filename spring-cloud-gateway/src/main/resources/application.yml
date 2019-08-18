@@ -12,7 +12,7 @@ spring:
         - id: auth-server
           uri: lb://auth-service
           predicates:
-            - Path=/uaa/**
+            - Path=/auth/**
         - id: song
           uri: lb://song-service
           predicates:
