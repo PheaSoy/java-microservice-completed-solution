@@ -5,6 +5,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*'
+        include:
+          - info, health,prometheus,beans
 server:
   port: 8083
