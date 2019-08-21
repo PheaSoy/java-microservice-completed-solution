@@ -1,7 +1,12 @@
 server:
   port: 0
-#  servlet:
-#    context-path: /config
+  servlet:
+    context-path: /config
+eureka:
+  instance:
+    metadata-map:
+      configPath: /config
+
 spring:
   application:
     name: configserver
