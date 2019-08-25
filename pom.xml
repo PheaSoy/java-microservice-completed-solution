@@ -87,7 +87,7 @@
 		<module>configure-server</module>
 		<module>vertx-api-gateway</module>
 		<module>user-service</module>
-		<module>song-alabum</module>
+		<module>song-album</module>
 	</modules>
 
 </project>

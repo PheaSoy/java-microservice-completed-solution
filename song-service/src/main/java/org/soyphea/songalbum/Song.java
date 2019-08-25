@@ -1,36 +1,33 @@
 package org.soyphea.songalbum;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
+import java.util.Date;
 
-@Entity
-@Table(name = "songalbum")
+@Document
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Song {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    Long id;
+    String id;
 
     String name;
 
-    @JsonProperty("singer_name")
-    String singerName;
+    String singerId;
 
-    public String getName() {
-        return name;
-    }
+    Long songDuration;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    @CreatedDate
+    Date createDate = new Date();
 
-    public String getSingerName() {
-        return singerName;
-    }
-
-    public void setSingerName(String singerName) {
-        this.singerName = singerName;
-    }
 
 }

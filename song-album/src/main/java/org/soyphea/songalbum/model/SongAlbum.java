@@ -27,5 +27,5 @@ public class SongAlbum {
     String albumId;
 
     @CreatedDate
-    Date createDate;
+    Date createDate =new Date();
 }

@@ -24,6 +24,7 @@ public class AlbumController {
 
     @PostMapping("/albums")
     public ResponseEntity<Album> createSongAlbum(@RequestBody Album album) {
+        logger.info("Create album.");
         return ResponseEntity.ok(albumRepository.save(album));
     }
 
@@ -33,9 +34,7 @@ public class AlbumController {
     public ResponseEntity<Album> getAlbumInfoByAlbumId(@PathVariable("id") String albumId) {
         logger.info("Get album info by album id:{}",albumId);
         return albumRepository.findById(albumId).map(album -> ResponseEntity.ok(album)).orElseThrow(() -> new AlbumNotFoundException());
-
     }
-
 
     @GetMapping("/albums")
     public ResponseEntity<List<Album>> getAllAlbumsByUserID(@RequestParam("user") String albumId) {

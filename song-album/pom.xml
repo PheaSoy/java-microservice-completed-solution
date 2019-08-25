@@ -11,7 +11,7 @@
 
     <artifactId>song-alabum</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>song-alabum</name>
+    <name>song-album</name>
     <description>Song Album APIs</description>
 
 
@@ -57,6 +57,17 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
