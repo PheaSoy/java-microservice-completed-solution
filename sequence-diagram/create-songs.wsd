@@ -1,0 +1,15 @@
+@startuml
+    title : Create Songs By Given Songs Info and User ID
+    actor "User" as user
+    participant "API Gateway" as api_gw
+    participant "Auth-Service" as auth
+    participant "Song-Service" as song_service
+
+    user -> api_gw: POST /api/songs
+    api_gw -> auth: GET /authentication/oauth/check_token
+    api_gw <- auth: http_status: 200
+    api_gw -> song_service: POST /api/songs
+    api_gw <- song_service: http_status: 200
+    user <- api_gw: http_status: 200
+    
+@enduml

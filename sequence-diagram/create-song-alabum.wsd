@@ -1,0 +1,18 @@
+
+@startuml
+    title : Create User Song Alabum By Given User ID
+    actor "User" as user
+    participant "API Gateway" as api_gw
+    participant "Auth-Service" as auth
+    participant "Song-Service" as song_service
+
+    
+    user -> api_gw:  /api/song/alabum
+    api_gw -> auth: /authentication/oauth/check_token
+    auth -> auth: authorize
+    api_gw <- auth: http_status: 200
+    api_gw -> song_service: /api/song/alabum
+    song_service -> song_service: perform create alabum logic
+    api_gw <- song_service: http_status: 200
+    user <- api_gw: http_status: 200
+@enduml

@@ -85,7 +85,8 @@
 		<module>notification-service</module>
 		<module>song-service</module>
 		<module>configure-server</module>
-
+		<module>vertx-api-gateway</module>
+		<module>user-service</module>
 	</modules>
 
 </project>

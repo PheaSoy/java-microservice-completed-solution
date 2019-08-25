@@ -1,0 +1,25 @@
+@startuml
+    title : Loging or Authenticate User
+    actor "User" as user
+    participant "API Gateway" as api_gw
+    participant "Auth-Service" as auth
+    participant "User-Service" as user_service
+    user -> api_gw: POST api/authentication/oauth/token
+    api_gw -> auth: POST /authentication/oauth/token
+    auth -> user_service: /user/verification
+    auth <- user_service: http_status: 200
+    note left
+    {
+     "access_token":"XXX",
+     "refresh_token:"YYYY
+    }
+    end note
+    api_gw <- auth: http_status: 200
+      note left
+    {
+     "access_token":"XXX",
+     "refresh_token:"YYYY
+    }
+    end note
+    user <- api_gw: profile created..
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+    title : Audience subscribe Singer
+    actor "User" as user
+    participant "API Gateway" as api_gw
+    participant "Auth-Service" as auth
+    participant "User-Service" as user_service
+    user -> api_gw: POST /api/users{id}/singers/{id}
+    api_gw -> auth: GET /authentication/oauth/check_token
+    api_gw <- auth: http_status: 200
+    api_gw -> user_service: POST /api/users{id}/singers/{id}
+    api_gw <- user_service: http_status: 200
+    user <- api_gw: http_status: 200
+@enduml

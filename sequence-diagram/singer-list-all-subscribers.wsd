@@ -1,0 +1,13 @@
+@startuml
+    title : Singer List all Available Subscribers
+    actor "User" as user
+    participant "API Gateway" as api_gw
+    participant "Auth-Service" as auth
+    participant "User-Service" as user_service
+    user -> api_gw: GET /api/users{id}/subscribers
+    api_gw -> auth: GET /authentication/oauth/check_token
+    api_gw <- auth: http_status: 200
+    api_gw -> user_service: GET /api/users{id}/subscribers
+    api_gw <- user_service: http_status: 200
+    user <- api_gw: http_status: 200
+@enduml
