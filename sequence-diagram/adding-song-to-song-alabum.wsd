@@ -1,14 +1,14 @@
 @startuml
-    title : Adding Song to Song Alabum
+    title : Adding Song to  Alabum
     actor "User" as user
     participant "API Gateway" as api_gw
     participant "Auth-Service" as auth
     participant "Song-Alabum" as song_alabum
 
-    user -> api_gw: POST /api/song-alabum/alabums/{id}/songs/{id}
+    user -> api_gw: POST /api/song-alabum/alabums/{id}/songs
     api_gw -> auth: GET /authentication/oauth/check_token
     api_gw <- auth: http_status: 200
-    api_gw -> song_alabum: POST /api/song-alabum/alabums/{id}/songs/{id}
+    api_gw -> song_alabum: POST /api/song-alabum/alabums/{id}/songs
     api_gw <- song_alabum: http_status: 200
     user <- api_gw: http_status: 200
     

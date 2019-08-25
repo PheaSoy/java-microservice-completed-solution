@@ -1,5 +1,5 @@
 @startuml
-    title : Singer List all Available Subscribers
+    title :  List all Available Subscribers By Given User ID for Singer
     actor "User" as user
     participant "API Gateway" as api_gw
     participant "Auth-Service" as auth

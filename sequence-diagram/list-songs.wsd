@@ -1,5 +1,5 @@
 @startuml
-    title : List Available Songs By Given User ID
+    title : List Available Songs By Given User ID For Singer
     
     actor "User" as user
     participant "API Gateway" as api_gw

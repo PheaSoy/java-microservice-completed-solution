@@ -27,7 +27,7 @@ public class AlbumRepositoryTest {
 
     @BeforeEach
     public void init(){
-        album = new Album("My Song Album",new Date(),"001");
+        album = new Album("My SongAlbum Album",new Date(),"001");
     }
 
     @Test
@@ -45,6 +45,14 @@ public class AlbumRepositoryTest {
     @Test
     public void getSearchAlbumWithCorrectNameShouldBeOK(){
         Optional<Album> albumSearch = albumRepository.findByName(album.getName());
-        assertThat(albumSearch.isPresent()).isEqualTo(false);
+        assertThat(albumSearch.isPresent()).isEqualTo(true);
+    }
+
+
+    @Test
+    public void searchAlbumWithCorrectIdShouldBeOK(){
+        Album albumSaveSearchId = albumRepository.save(album);
+        Optional<Album> albumSearch = albumRepository.findById(albumSaveSearchId.getId());
+        assertThat(albumSearch.isPresent()).isEqualTo(true);
     }
 }

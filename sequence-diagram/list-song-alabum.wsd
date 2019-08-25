@@ -1,14 +1,14 @@
 
 @startuml
-    title : List All Available Song Aabums By Given User ID
+    title : List All Available Aabums By Given User ID
     actor "User" as user
     participant "API Gateway" as api_gw
     participant "Auth-Service" as auth
     participant "Song-Alabum" as song_album
-    user -> api_gw: GET /api/song-albums/albums
+    user -> api_gw: GET /api/song-album/albums?user=1
     api_gw -> auth: GET /authentication/oauth/check_token
     api_gw <- auth: http_status: 200
-    api_gw -> song_alabum: GET /api/song-albums/albums
+    api_gw -> song_alabum: GET /api/song-album/albums?user=1
     api_gw <- song_alabum: http_status: 200
     user <- api_gw: http_status: 200
 @enduml

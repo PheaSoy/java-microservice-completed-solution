@@ -4,6 +4,10 @@ spring:
       host: localhost
       port: 27017
       database: song-album
+server:
+  servlet:
+    context-path: /song-album
+
 logging:
   level:
     web:
