@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: songalbum-service
+#  cloud:
+#    config:
+#      discovery:
+#        enabled: true
+#eureka:
+#  instance:
+#    metadata-map:
+#      configPath: /config

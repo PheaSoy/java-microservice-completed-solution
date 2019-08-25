@@ -13,7 +13,7 @@ public class RouteConfiguration {
 
         return routeLocatorBuilder.routes()
                 .route("auth-server", predicateSpec -> predicateSpec.path("/uaa/**").uri("lb://auth-service"))
-                .route("song", predicateSpec -> predicateSpec.path("/song/**").uri("lb://song-service"))
+                .route("songalbum", predicateSpec -> predicateSpec.path("/songalbum/**").uri("lb://songalbum-service"))
                 .build();
     }
 

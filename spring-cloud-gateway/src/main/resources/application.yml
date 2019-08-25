@@ -13,10 +13,10 @@ spring:
           uri: lb://auth-service
           predicates:
             - Path=/auth/**
-        - id: song
-          uri: lb://song-service
+        - id: songalbum
+          uri: lb://songalbum-service
           predicates:
-            - Path=/song/**
+            - Path=/songalbum/**
           filters:
           - name: Hystrix
             args:
