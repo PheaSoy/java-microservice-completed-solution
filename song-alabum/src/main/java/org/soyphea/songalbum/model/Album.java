@@ -27,7 +27,7 @@ public class Album {
     private String name;
 
     @CreatedDate
-    Date createDate;
+    Date createDate = new Date();
 
     @CreatedBy
     String userId;
