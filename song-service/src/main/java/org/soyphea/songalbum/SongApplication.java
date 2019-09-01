@@ -15,7 +15,6 @@ public class SongApplication  implements CommandLineRunner {
 
     Logger logger = LoggerFactory.getLogger(SongApplication.class);
 
-
     public static void main(String[] args) {
         SpringApplication.run(SongApplication.class,args);
     }

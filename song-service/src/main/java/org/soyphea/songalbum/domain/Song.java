@@ -1,4 +1,4 @@
-package org.soyphea.songalbum;
+package org.soyphea.songalbum.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

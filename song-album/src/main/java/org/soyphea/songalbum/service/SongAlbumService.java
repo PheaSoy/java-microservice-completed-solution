@@ -59,9 +59,14 @@ public class SongAlbumService {
                 "Shap of You", "ALB0001", "Ed-Sheeran for Me", "Ed-Sheeran"));
     }
 
-
     private boolean isSongExist(SongAlbum songAlbum) {
-        logger.info("Sending the message to song channel.");
+        logger.debug("Sending the message to song channel.");
+        songChannel.send().send(MessageBuilder.withPayload(songAlbum).build());
+        return true;
+    }
+
+    private boolean isSongExistMessaging(SongAlbum songAlbum) {
+        logger.debug("Sending the message to song channel.");
         songChannel.send().send(MessageBuilder.withPayload(songAlbum).build());
         return true;
     }
