@@ -1,6 +1,6 @@
 spring:
   application:
-    name: songalbum-service
+    name: song-service
   cloud:
     config:
       discovery:

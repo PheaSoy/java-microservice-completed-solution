@@ -24,8 +24,6 @@ public class Song {
 
     String singerId;
 
-    Long songDuration;
-
     @CreatedDate
     Date createDate = new Date();
 

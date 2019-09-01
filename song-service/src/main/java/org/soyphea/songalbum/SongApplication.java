@@ -19,11 +19,11 @@ public class SongApplication  implements CommandLineRunner {
         SpringApplication.run(SongApplication.class,args);
     }
 
-    @Value("${favorite.songalbum:default-songalbum}")
+    @Value("${favorite.song:default-song}")
     String favoriteSong;
 
     @Override
     public void run(String... args) throws Exception {
-        logger.info("Favorite songalbum fetched from configure-server:{}",favoriteSong);
+        logger.info("Favorite song fetched from configure-server:{}",favoriteSong);
     }
 }
